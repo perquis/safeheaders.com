@@ -5,11 +5,7 @@ export const getRaport = (headers: {
 }) => {
   const result = securityHeaders
     .map((item) => {
-      if ("x-powered-by" in headers) {
-        return item;
-      }
-
-      return item.label in headers ? null : item;
+      return item.label in headers ? { ...item, highlight: true } : item;
     })
     .filter(Boolean);
 

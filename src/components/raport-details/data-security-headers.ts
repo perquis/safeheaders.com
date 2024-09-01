@@ -3,31 +3,26 @@ export const securityHeaders = [
     label: "access-control-allow-origin",
     content:
       "This is a very lax CORS policy but the current site is a whitelisted CDN, so this is expected.",
-    highlight: true,
   },
   {
     label: "content-security-policy",
     content:
       "Content Security Policy is an effective measure to protect your site from XSS attacks. By whitelisting sources of approved content, you can prevent the browser from loading malicious assets. Analyse this policy in more detail.",
-    highlight: true,
   },
   {
     label: "strict-transport-security",
     content:
       "HTTP Strict Transport Security is an excellent feature to support on your site and strengthens your implementation of TLS by getting the User Agent to enforce the use of HTTPS.",
-    highlight: true,
   },
   {
     label: "referrer-policy",
     content:
       "Referrer Policy is a new header that allows a site to control how much information the browser includes with navigations away from a document and should be set by all sites.",
-    highlight: true,
   },
   {
     label: "x-frame-options",
     content:
       "X-Frame-Options tells the browser whether you want to allow your site to be framed or not. By preventing a browser from framing your site you can defend against attacks like clickjacking.",
-    highlight: true,
   },
   {
     label: "x-xss-protection",
@@ -38,7 +33,6 @@ export const securityHeaders = [
     label: "x-content-type-options",
     content:
       "X-Content-Type-Options prevents browsers from performing MIME type sniffing and ensures they adhere strictly to the declared content type. The recommended value for this header is 'X-Content-Type-Options: nosniff', which mitigates the risk of certain types of content misinterpretation vulnerabilities.X-Content-Type-Options stops a browser from trying to MIME-sniff the content type and forces it to stick with the declared content-type. The only valid value for this header is 'X-Content-Type-Options: nosniff'.",
-    highlight: true,
   },
   {
     label: "expect-ct",
@@ -49,7 +43,6 @@ export const securityHeaders = [
     label: "permissions-policy",
     content:
       "The Permissions-Policy header is a powerful new feature that enables websites to control and restrict the use of various browser features and APIs, enhancing security and privacy.",
-    highlight: true,
   },
   {
     label: "x-powered-by",
