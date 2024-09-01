@@ -1,0 +1,36 @@
+import clsx from "clsx";
+import Link from "next/link";
+import { FC } from "react";
+
+interface Item {
+  name: string;
+  href: string;
+  external?: boolean;
+  disabled?: boolean;
+}
+
+interface IList {
+  title: string;
+  items: Item[];
+}
+
+export const List: FC<IList> = ({ title, items }) => {
+  return (
+    <menu className="flex flex-1 flex-col">
+      <li className="py-1.5 text-sm font-medium">{title}</li>
+      {items.map((item) => (
+        <li key={item.name} className="py-1.5 text-sm">
+          <Link
+            href={item.href}
+            className={clsx(
+              "text-zinc-500 hover:text-cyan-400 focus-visible:text-cyan-400",
+              item.disabled && "pointer-events-none opacity-50",
+            )}
+          >
+            {item.name} {item.external && <span>↗</span>}
+          </Link>
+        </li>
+      ))}
+    </menu>
+  );
+};
