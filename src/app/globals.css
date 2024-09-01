@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url(./themes.css);
 
 *:focus-visible {
   @apply rounded-md outline-none outline-offset-2 outline-cyan-400;
