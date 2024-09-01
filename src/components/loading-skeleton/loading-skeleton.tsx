@@ -3,7 +3,7 @@ import { PopularHeadersList } from "@/components/popular-headers-list/feature-po
 import { Divider } from "@/shared/ui/divider/divider";
 import { Heading } from "@/shared/ui/heading/heading";
 
-export default function Loading() {
+export const LoadingSkeleton = () => {
   return (
     <main className="flex flex-col gap-32 pb-32 pt-64">
       <HeroHeader />
@@ -32,4 +32,4 @@ export default function Loading() {
       </div>
     </main>
   );
-}
+};

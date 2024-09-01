@@ -17,7 +17,7 @@ export const UnorderedList: FC<IUnorderedList> = ({ list }) => {
   return (
     <div className="relative flex flex-col rounded-xl bg-zinc-900">
       <img
-        src="notebook-dynamic-color.png"
+        src="/notebook-dynamic-color.png"
         className="absolute -right-6 -top-6"
       />
       {list.map((item, index) => (

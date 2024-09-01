@@ -2,27 +2,15 @@
 
 import { Search } from "@/assets/icons/search";
 import { useOpen } from "@/shared/hooks/use-open";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback } from "react";
+import { useParams, useRouter } from "next/navigation";
 
 const regex = /^(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
 
 export const SearchForDomains = () => {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
+  const params = useParams();
   const router = useRouter();
 
   const [error, [activeError, closeError]] = useOpen();
-
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
-
-      return params.toString();
-    },
-    [searchParams],
-  );
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,7 +24,7 @@ export const SearchForDomains = () => {
       return;
     }
 
-    router.push(pathname + "?" + createQueryString("q", search));
+    router.push(`/q/${search}`);
   };
 
   return (
@@ -52,7 +40,7 @@ export const SearchForDomains = () => {
           type="search"
           name="search"
           id="search"
-          defaultValue={searchParams.get("q")?.toLowerCase() || ""}
+          defaultValue={params.name}
           className="bg-transparent px-3 py-2.5 text-sm !outline-none placeholder:text-zinc-500"
           placeholder="example.com"
         />

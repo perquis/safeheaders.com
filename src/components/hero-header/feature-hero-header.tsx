@@ -7,10 +7,10 @@ import Link from "next/link";
 export const HeroHeader = () => {
   return (
     <div className="relative flex flex-col items-center gap-10">
-      <img className="absolute -top-8 left-24" src="key-dynamic-color.png" />
+      <img className="absolute -top-8 left-24" src="/key-dynamic-color.png" />
       <img
         className="absolute -bottom-16 right-32"
-        src="key-dynamic-premium.png"
+        src="/key-dynamic-premium.png"
       />
 
       <div className="flex flex-col items-center gap-5">
