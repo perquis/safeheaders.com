@@ -31,7 +31,7 @@ export const SearchForDomains = () => {
     closeError();
 
     const formData = new FormData(e.currentTarget);
-    const search = formData.get("search") as string;
+    const search = formData.get("search")?.toString().toLowerCase() as string;
 
     if (!regex.test(search)) {
       activeError();
@@ -54,9 +54,9 @@ export const SearchForDomains = () => {
           type="search"
           name="search"
           id="search"
-          defaultValue={searchParams.get("q") || ""}
+          defaultValue={searchParams.get("q")?.toLowerCase() || ""}
           className="bg-transparent px-3 py-2.5 text-sm !outline-none placeholder:text-zinc-500"
-          placeholder="Search for domains..."
+          placeholder="example.com"
         />
 
         <div className={clsx("flex items-center gap-1 text-zinc-500")}>

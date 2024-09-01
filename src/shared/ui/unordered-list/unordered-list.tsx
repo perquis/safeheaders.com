@@ -6,6 +6,7 @@ import { FC, PropsWithChildren } from "react";
 interface Item {
   label: string;
   content: string;
+  highlight?: boolean;
 }
 
 interface IUnorderedList {
@@ -21,7 +22,14 @@ export const UnorderedList: FC<IUnorderedList> = ({ list }) => {
       />
       {list.map((item, index) => (
         <Item key={index}>
-          <div className="w-32 flex-shrink-0 text-zinc-500">{item.label}</div>
+          <div
+            className={clsx(
+              "w-32 flex-shrink-0 text-zinc-500",
+              item.highlight && "!text-cyan-400",
+            )}
+          >
+            {item.label}
+          </div>
           <div>{item.content}</div>
         </Item>
       ))}

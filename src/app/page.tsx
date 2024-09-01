@@ -1,21 +1,36 @@
 import { HeroHeader } from "@/components/hero-header/feature-hero-header";
 import { PopularHeadersList } from "@/components/popular-headers-list/feature-popular-headers-list";
 import { PostsList } from "@/components/posts-list/feature-posts-list";
+import { RaportDetails } from "@/components/raport-details/feature-raport-details";
 import { posts } from "@/data/mock/posts";
 import Code from "@/shared/ui/code/code";
 import { Divider } from "@/shared/ui/divider/divider";
 import { Heading } from "@/shared/ui/heading/heading";
 import axios from "axios";
 
+interface Params {
+  [key: string]: string | string[] | undefined;
+}
+
 interface IHome {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Params;
 }
 
 export default async function Home({ searchParams }: IHome) {
   const query = searchParams.q as string | undefined;
-  const { headers } = await axios.get(`https://${query}`, {
-    maxRedirects: 10,
-  });
+  let headers: Params = {};
+
+  try {
+    const data = await axios.get(`https://${query}`, {
+      maxRedirects: 10,
+    });
+
+    headers = data.headers as Params;
+  } catch (error) {
+    if (query) {
+      throw new Error("Error fetching headers");
+    }
+  }
 
   const details = {
     date: headers.date,
@@ -43,6 +58,8 @@ ${JSON.stringify(headers, null, 4)}`;
               <Heading>Raw Headers 🛸</Heading>
               <Code code={code} />
             </div>
+            <Divider />
+            <RaportDetails headers={headers} />
           </>
         ) : (
           <>
