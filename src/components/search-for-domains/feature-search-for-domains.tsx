@@ -54,6 +54,7 @@ export const SearchForDomains = () => {
           type="search"
           name="search"
           id="search"
+          defaultValue={searchParams.get("q") || ""}
           className="bg-transparent px-3 py-2.5 text-sm !outline-none placeholder:text-zinc-500"
           placeholder="Search for domains..."
         />
