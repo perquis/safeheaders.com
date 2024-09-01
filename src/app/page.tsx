@@ -56,6 +56,11 @@ ${JSON.stringify(headers, null, 4)}`;
           <>
             <div className="flex flex-col gap-5">
               <Heading>Raw Headers 🛸</Heading>
+              <p className="text-sm text-zinc-300">
+                Here is the response received from the server. Below, you will
+                find the complete list of applied headers. Please review them
+                and check for any missing elements.
+              </p>
               <Code code={code} />
             </div>
             <Divider />
