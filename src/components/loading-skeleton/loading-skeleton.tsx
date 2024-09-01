@@ -1,12 +1,12 @@
-import { HeroHeader } from "@/components/hero-header/feature-hero-header";
 import { PopularHeadersList } from "@/components/popular-headers-list/feature-popular-headers-list";
+import { QueryHeader } from "@/components/query-header/feature-query-header";
 import { Divider } from "@/shared/ui/divider/divider";
 import { Heading } from "@/shared/ui/heading/heading";
 
 export const LoadingSkeleton = () => {
   return (
     <main className="flex flex-col gap-32 pb-32 pt-64">
-      <HeroHeader />
+      <QueryHeader />
 
       <div className="mx-auto flex w-full max-w-screen-sm flex-col gap-10">
         <div className="flex flex-col gap-5">
