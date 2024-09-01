@@ -26,6 +26,7 @@ export const List: FC<IList> = ({ title, items }) => {
               "text-zinc-500 hover:text-cyan-400 focus-visible:text-cyan-400",
               item.disabled && "pointer-events-none opacity-50",
             )}
+            tabIndex={item.disabled ? -1 : undefined}
           >
             {item.name} {item.external && <span>↗</span>}
           </Link>
