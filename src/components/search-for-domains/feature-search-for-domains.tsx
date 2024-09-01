@@ -1,9 +1,7 @@
 "use client";
 
-import { Command } from "@/assets/icons/command";
 import { Search } from "@/assets/icons/search";
 import { useOpen } from "@/shared/hooks/use-open";
-import clsx from "clsx";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 
@@ -59,9 +57,9 @@ export const SearchForDomains = () => {
           placeholder="example.com"
         />
 
-        <div className={clsx("flex items-center gap-1 text-zinc-500")}>
+        {/* <div className={clsx("flex items-center gap-1 text-zinc-500")}>
           <Command />+ K
-        </div>
+        </div> */}
       </form>
       {error && (
         <span className="text-xs text-red-500">This domain is invalid.</span>
