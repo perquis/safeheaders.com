@@ -41,6 +41,7 @@ export default function CopyToClipboard({ code }: ICopyToClipboard) {
         isCopied && "!text-cyan-400",
         "disabled:cursor-not-allowed",
         "absolute right-2 top-2",
+        "hidden xl:block",
       )}
       onClick={copy}
       disabled={isCopied}
