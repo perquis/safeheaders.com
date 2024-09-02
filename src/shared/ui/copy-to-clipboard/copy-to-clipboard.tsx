@@ -38,7 +38,7 @@ export default function CopyToClipboard({ code }: ICopyToClipboard) {
     <button
       className={clsx(
         "rounded p-2 text-zinc-400 transition-colors duration-100 ease-in-out hover:text-zinc-500 focus-visible:text-zinc-500 dark:text-zinc-600 dark:hover:text-zinc-500 dark:focus-visible:text-zinc-500",
-        isCopied && "!text-emerald-500",
+        isCopied && "!text-cyan-400",
         "disabled:cursor-not-allowed",
         "absolute right-2 top-2",
       )}
