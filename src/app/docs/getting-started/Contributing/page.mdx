@@ -1,3 +1,106 @@
-import Link from "next/link";
+import { Link } from "@/shared/ui/link/link";
 
-This part of documentation is work in progress. If you would like to help, please check the <Link className="text-cyan-400 font-medium hover:underline focus-visible:underline" href="/docs/getting-started/Contributing">contributing guide</Link>.
+import { Divider } from "@/shared/ui/divider/divider";
+
+export const metadata = {
+  title: "Documentation: Contributing - SafeHeaders",
+  description: "Welcome to the SafeHeaders documentation!",
+};
+
+# Let’s Create Notes Together!
+
+Do you have knowledge that could help us improve our documentation? If so, **you'll find** the steps below that you need to follow to create your own document.
+
+<Divider className="my-5 !border-zinc-800" />
+
+## How to Install the Project?
+
+To get started with the project, follow these steps:
+
+<ol>
+1. **Check Git Installation**: If <Link href="https://git-scm.com/downloads">Git</Link> is not installed yet, make sure to install it so you can manage project versions and updates.
+
+2. **Install Node.js**: Make sure you have Node.js version 20 or higher installed on your machine.
+
+<div className="flex flex-col mb-5 gap-5">
+3. **Clone the Repository**: Use the command below to clone the repository to your local machine. Make sure you have Git installed.
+
+```sh
+git clone https://github.com/perquis/safe-headers.com.git
+```
+
+</div>
+
+<div className="flex flex-col gap-5">
+4. **Install Dependencies**: Navigate to the project directory and install the required dependencies with:
+
+```sh
+npm install
+```
+
+</div>
+
+</ol>
+
+By following these steps, you’ll be ready to start working with the project!
+
+<Divider className="my-5 !border-zinc-800" />
+
+## What You Need to Know Before Getting Started?
+
+Before diving into the project, here are a few things you should be aware of:
+
+<ol>
+1. **Document Creation and Editing**: You will need to know where to create and edit documents. Navigate to the **/app/docs** directory, where you'll find files with the **.mdx** extension.
+
+2. **Markdown for Layout**: Use Markdown to design a simple layout for your documents. This content will be automatically converted to HTML for you.
+
+</ol>
+
+By understanding these basics, you’ll be ready to start creating and editing your documentation effectively.
+
+### Create Your First Document
+
+To get hands-on experience with Markdown syntax, follow these steps:
+
+1. **Create a Directory**: Set up a new folder named `test` and add a file named `page.mdx` inside it.
+
+2. **Run the Server**: Start the development server by executing: `npm run dev{:sh}`.
+
+3. **View Your Document**: Open your browser and navigate to <Link href="http://localhost:3000/docs/test">http://localhost:3000/docs/test</Link> to see your document.
+
+Below is a simple example of Markdown code that you can copy and paste into `page.mdx` to begin testing:
+
+```js showLineNumbers
+import { MyComponent } from "my-component";
+
+Welcome to my MDX page!
+This is some **bold** and _italics_ text.
+
+This is a list in markdown:
+
+- One
+- Two
+- Three
+
+Checkout my React component:
+
+<MyComponent />
+
+Feel free to experiment with different Markdown features.
+```
+
+Start experimenting and see your changes live in the browser!
+
+<Divider className="my-5 !border-zinc-800" />
+
+## Before Pushing Changes
+
+Remember, if you want to add new content to the repository, you'll need to create a **Pull Request (PR)**. Your changes will only be merged and appear on the website after we review and approve them.
+
+<img
+  className="pointer-events-none w-full select-none overflow-hidden rounded-lg"
+  src="https://cdn.dribbble.com/userupload/2608299/file/original-00f24643a2c18bc04251f7a2019d4743.gif"
+/>
+
+Make sure to follow this process to ensure your contributions are properly integrated!
