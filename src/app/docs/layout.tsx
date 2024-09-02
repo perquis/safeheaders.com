@@ -1,4 +1,4 @@
-import { Leftbar } from "@/app/docs/leftbar";
+import { Menu } from "@/app/docs/menu";
 import { Rightbar } from "@/app/docs/rightbar";
 import { extractMdHeadings, getMarkdown, readDocsTree } from "@/shared/utils";
 import { headers } from "next/headers";
@@ -14,19 +14,12 @@ export default async function DocsLayout({ children }: PropsWithChildren) {
   const docsTree = await readDocsTree();
 
   return (
-    <main
-      className="mx-auto grid max-w-screen-xl gap-5 py-16"
-      style={{ gridTemplateColumns: "240px 1fr 1fr 240px" }}
-    >
-      <div>
-        <div className="sticky left-0 top-5 flex flex-col gap-5">
-          <Leftbar docsTree={docsTree} />
-        </div>
-      </div>
-      <div className="col-start-2 col-end-4 flex flex-col gap-5">
+    <main className="sm:grid-cols-layout-tablet lg:grid-cols-layout-desktop mx-auto grid max-w-screen-xl grid-cols-1 gap-10 pb-16 sm:gap-5 sm:py-16">
+      <Menu docsTree={docsTree} />
+      <div className="flex flex-col gap-5 sm:col-start-2 sm:col-end-4">
         {children}
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="hidden flex-col gap-2 lg:flex">
         <div className="sticky left-0 top-5">
           <Rightbar links={links} />
         </div>

@@ -21,7 +21,7 @@ export const PostsList: FC<IPostsList> = ({ posts }) => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-5">
         {posts.map((post, index) => (
           <Card key={index} {...post} />
         ))}

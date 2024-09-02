@@ -9,7 +9,7 @@ export const Footer = async () => {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="border-t border-zinc-800 bg-zinc-950/10 px-5 backdrop-blur-3xl">
+      <div className="border-t border-zinc-800 bg-zinc-950/10 px-5 backdrop-blur-3xl lg:px-10">
         <footer className="z-50 mx-auto flex max-w-screen-xl flex-wrap gap-10 pb-16 pt-14">
           <div className="flex w-64 flex-1 items-start justify-start">
             <Link href="/">

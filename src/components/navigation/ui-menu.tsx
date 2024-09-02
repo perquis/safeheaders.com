@@ -4,7 +4,7 @@ import { ItemLink } from "@/components/navigation/ui-item-link";
 
 export const Menu = () => {
   return (
-    <menu className="flex gap-1">
+    <menu className="hidden gap-1 lg:flex">
       {links.map(({ href, label, external }) => (
         <ItemLink key={label} href={href}>
           {label}

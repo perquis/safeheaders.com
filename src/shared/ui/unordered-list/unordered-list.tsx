@@ -24,7 +24,7 @@ export const UnorderedList: FC<IUnorderedList> = ({ list }) => {
         <Item key={index}>
           <div
             className={clsx(
-              "w-32 flex-shrink-0 text-zinc-500",
+              "flex-shrink-0 text-zinc-500 md:w-32",
               item.highlight && "!text-cyan-400",
             )}
           >
@@ -41,7 +41,7 @@ const Item: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div
       className={clsx(
-        "flex items-start gap-2 border-b border-zinc-800 px-4 py-3.5 text-sm font-medium last:border-0",
+        "flex flex-col items-start gap-2 border-b border-zinc-800 px-4 py-3.5 text-sm font-medium last:border-0 md:flex-row",
       )}
     >
       {children}
