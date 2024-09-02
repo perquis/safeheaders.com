@@ -10,7 +10,7 @@ export const extractMdHeadings = (markdown: string) => {
 
   const links = headings.map((heading) => {
     const textContent = heading.replace(/^#+\s/, ""),
-      level = heading.match(/^#+/)?.[0].length,
+      level = heading.match(/^#+/)?.[0].length!,
       href = "#" + slugger.slug(textContent);
 
     return { textContent, href, level };
