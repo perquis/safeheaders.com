@@ -9,6 +9,8 @@
 
 html {
   color-scheme: dark;
+  scroll-behavior: smooth !important;
+  @apply scroll-p-5;
 }
 
 input[type="search"]::-webkit-search-decoration,

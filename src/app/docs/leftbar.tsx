@@ -1,0 +1,52 @@
+"use client";
+
+import { Heading } from "@/shared/ui/heading/heading";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { FC, useEffect } from "react";
+
+interface ILeftbar {
+  docsTree: Record<string, string[]>;
+}
+
+export const Leftbar: FC<ILeftbar> = ({ docsTree }) => {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    router.refresh();
+  }, [pathname, router]);
+
+  return (
+    <>
+      {Object.entries(docsTree).map(([name, list]) => (
+        <div key={name}>
+          <Link
+            href={`/docs/${name}`}
+            className="text-sm font-medium hover:text-cyan-400 focus-visible:text-cyan-400"
+          >
+            <Heading className="capitalize">
+              {name.replaceAll("-", " ")}
+            </Heading>
+          </Link>
+          <menu className="mt-2 flex flex-col gap-1.5 pl-1">
+            {list
+              .sort((a, b) => a.localeCompare(b))
+              .map((link) => (
+                <li key={link}>
+                  <Link
+                    href={`/docs/${name}/${link}`}
+                    className={
+                      "text-sm text-zinc-400 hover:text-cyan-400 focus-visible:text-cyan-400"
+                    }
+                  >
+                    {name === "headers" ? link : link.replaceAll("-", " ")}
+                  </Link>
+                </li>
+              ))}
+          </menu>
+        </div>
+      ))}
+    </>
+  );
+};

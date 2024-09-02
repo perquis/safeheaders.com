@@ -1,15 +1,12 @@
 import { Logo } from "@/assets/icons/logo";
-import {
-  aboutHeaders,
-  frameworks,
-  resources,
-  security,
-} from "@/components/footer/data-links";
 import { List } from "@/components/footer/ui-list";
 import { Newsletter } from "@/components/newsletter/feature-newsletter";
+import { readDocsTree } from "@/shared/utils";
 import Link from "next/link";
 
-export const Footer = () => {
+export const Footer = async () => {
+  const docsTree = await readDocsTree();
+
   return (
     <div className="relative overflow-hidden">
       <div className="border-t border-zinc-800 bg-zinc-950/10 px-5 backdrop-blur-3xl sm:px-12 md:px-24 lg:px-48 xl:px-64 2xl:px-80">
@@ -20,10 +17,18 @@ export const Footer = () => {
             </Link>
           </div>
 
-          <List title="About Headers" items={aboutHeaders} />
-          <List title="Solutions for" items={frameworks} />
-          <List title="Resources" items={resources} />
-          <List title="Security" items={security} />
+          {Object.entries(docsTree).map(([key, items]) => {
+            return (
+              <List
+                key={key}
+                title={key.replaceAll("-", " ")}
+                items={items.map((v) => ({
+                  name: v.replaceAll("-", " "),
+                  href: v,
+                }))}
+              />
+            );
+          })}
 
           <Newsletter />
         </footer>

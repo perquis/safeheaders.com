@@ -1,5 +1,11 @@
+import clsx from "clsx";
 import { FC, PropsWithChildren } from "react";
 
-export const Heading: FC<PropsWithChildren> = ({ children }) => {
-  return <span className="text-sm font-semibold">{children}</span>;
+export const Heading: FC<PropsWithChildren & { className?: string }> = ({
+  children,
+  className,
+}) => {
+  return (
+    <span className={clsx("text-sm font-semibold", className)}>{children}</span>
+  );
 };
