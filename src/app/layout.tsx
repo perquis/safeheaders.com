@@ -29,8 +29,8 @@ export default function RootLayout({
         )}
       >
         <Navigation />
-        <div className="px-5 sm:px-12 md:px-24 lg:px-48 xl:px-64 2xl:px-80">
-          {children}
+        <div className="px-5">
+          <div className="mx-auto max-w-screen-xl">{children}</div>
         </div>
         <Background />
         <Footer />

@@ -13,19 +13,21 @@ export const Navigation = () => {
   return (
     <nav
       className={clsx(
-        "flex h-14 items-center justify-between border-zinc-800 px-5 sm:px-12 md:px-24 lg:px-48 xl:px-64 2xl:px-80",
+        "flex h-14 items-center justify-between border-zinc-800 px-5",
         pathname !== "/" && !pathname.includes("/q") && "border-b",
       )}
     >
-      <div className="flex items-center gap-7">
-        <Link href="/">
-          <Logo />
-        </Link>
+      <div className="mx-auto flex w-full max-w-screen-xl items-center justify-between">
+        <div className="flex items-center gap-7">
+          <Link href="/">
+            <Logo />
+          </Link>
 
-        <Menu />
+          <Menu />
+        </div>
+
+        <RedirectToGitHubRepo />
       </div>
-
-      <RedirectToGitHubRepo />
     </nav>
   );
 };

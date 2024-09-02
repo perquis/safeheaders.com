@@ -16,7 +16,7 @@ interface IList {
 
 export const List: FC<IList> = ({ title, items }) => {
   return (
-    <menu className="flex flex-1 flex-col">
+    <menu className="flex flex-col">
       <li className="py-1.5 text-sm font-medium capitalize">{title}</li>
       {items.map((item) => (
         <li key={item.name} className="py-1.5 text-sm">
