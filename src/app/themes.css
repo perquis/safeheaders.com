@@ -115,8 +115,12 @@ figure {
   @apply rounded-lg shadow;
 }
 
+figure pre code {
+  @apply !rounded-lg !px-0 py-2;
+}
+
 code {
-  @apply py-2;
+  @apply rounded-md p-2;
 }
 
 p {
