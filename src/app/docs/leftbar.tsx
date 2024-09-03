@@ -1,6 +1,7 @@
 "use client";
 
 import { Heading } from "@/shared/ui/heading/heading";
+import clsx from "clsx";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { FC, useEffect } from "react";
@@ -16,6 +17,9 @@ export const Leftbar: FC<ILeftbar> = ({ docsTree }) => {
   useEffect(() => {
     router.refresh();
   }, [pathname, router]);
+
+  const splitPath = pathname.split("/");
+  const currentDoc = splitPath[splitPath.length - 1];
 
   return (
     <>
@@ -36,9 +40,12 @@ export const Leftbar: FC<ILeftbar> = ({ docsTree }) => {
                 <li key={link}>
                   <Link
                     href={`/docs/${name}/${link}`}
-                    className={
-                      "text-sm text-zinc-400 hover:text-cyan-400 focus-visible:text-cyan-400"
-                    }
+                    className={clsx(
+                      "text-sm text-zinc-400 hover:text-cyan-400 focus-visible:text-cyan-400",
+                      {
+                        "!text-cyan-400": currentDoc === link,
+                      },
+                    )}
                   >
                     {name === "headers" ? link : link.replaceAll("-", " ")}
                   </Link>
