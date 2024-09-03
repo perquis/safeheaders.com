@@ -1,3 +1,144 @@
 import { Link } from "@/shared/ui/link/link";
 
-This part of documentation is work in progress. If you would like to help, please check the <Link href="/docs/getting-started/Contributing">contributing guide</Link>.
+import { Badge } from "@/shared/ui/badge/badge";
+
+import { Divider } from "@/shared/ui/divider/divider";
+
+export const metadata = {
+  title: "Documentation: Headers - SafeHeaders",
+  description:
+    "In this chapter, you'll gain comprehensive knowledge essential for securing web pages, including fundamental insights into the HTTP protocol and its operation.",
+};
+
+# Headers
+
+In this chapter, you'll gain comprehensive knowledge **essential for securing web pages**, including fundamental insights into the **HTTP protocol** and its operation.
+
+<div className="flex flex-wrap gap-2">
+  <Badge color="red">HTTP</Badge>
+  <Badge color="orange">Postman</Badge>
+</div>
+
+<Divider className="my-5 !border-zinc-800" />
+
+## Learn About HTTP Protocol
+
+**HTTP** is an **application layer protocol** designed for transferring information between networked devices, operating on top of the network protocol stack.
+
+<img
+  className="pointer-events-none w-full select-none overflow-hidden rounded-lg"
+  src="https://media.geeksforgeeks.org/wp-content/uploads/20240529150129/HTTP-.gif"
+/>
+
+In a typical HTTP interaction, <Badge className="!text-sm">a client machine</Badge> sends a request to <Badge className="!text-sm">a server</Badge>, which then responds with a message.
+
+### What is Request
+
+An HTTP request is how Internet communication platforms, like web browsers, request the information needed to load a website. Each HTTP request sent over the Internet includes a set of encoded data that **conveys various types of information**. A typical HTTP request comprises:
+
+- HTTP version
+- A URL
+- An HTTP method
+- HTTP request headers
+- An optional HTTP body
+
+Let’s delve deeper into how these requests operate and how their contents facilitate information exchange.
+
+<Divider className="mt-5 !border-zinc-800" />
+
+### HTTP Method
+
+An HTTP method, also known as an **HTTP verb**, specifies the action that an HTTP request **expects from the server**. Below is a list of HTTP methods that are widely popular and frequently used in the creation of **REST APIs**:
+
+<img
+  className="pointer-events-none w-full select-none overflow-hidden rounded-lg"
+  src="https://media.licdn.com/dms/image/v2/D4E22AQHVq84e8jLlFw/feedshare-shrink_800/feedshare-shrink_800/0/1701621198957?e=2147483647&v=beta&t=67Xca274P0MlDcRwnH2xPK1zzQdA6quUXOc0I20kYQU"
+/>
+
+<Divider className="my-5 !border-zinc-800" />
+
+### Request with Headers
+
+HTTP headers **consist of text information organized into key-value pairs** and are present in every HTTP request (and response, which we'll cover later). These headers convey <Badge className="!text-sm" color="fuchsia">essential details</Badge>, such as the client’s browser type and the data being requested.
+
+Here’s an **example** of HTTP request headers from **Google Chrome's** network tab:
+
+```http
+GET / HTTP/1.1
+Host: www.google.com
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding: gzip, deflate, sdch, br
+Accept-Language: en-US,en;q=0.8
+```
+
+### What Is in an HTTP Request Body?
+
+The body of an HTTP request holds the actual data <Badge className="!text-sm" color="orange">being transferred</Badge>. It contains information submitted to the web server, such **as a username and password** or other form data.
+
+<img
+  className="pointer-events-none w-full select-none overflow-hidden rounded-lg"
+  src="https://miro.medium.com/v2/resize:fit:1400/1*3BVApL_Cbxbe34WPhs3Gsw.gif"
+/>
+
+### What Is in an HTTP Response?
+
+An <Badge className="!text-sm" color="indigo">HTTP response</Badge> is what web clients (typically browsers) **receive from a server** in reply to an <Badge className="!text-sm" color="yellow">HTTP request</Badge>. These responses provide **crucial information** based on the request made.
+
+A typical **HTTP response** includes:
+
+- An HTTP status code
+- HTTP response headers
+- An optional HTTP body
+
+### What’s an HTTP Status Code?
+
+HTTP status codes are **3-digit numbers** used to indicate the outcome of an **HTTP request**. They are categorized into five classes:
+
+<img
+  className="pointer-events-none w-full select-none overflow-hidden rounded-lg"
+  src="https://www.xeonbd.com/wp-content/uploads/HTTP-Response-Status-Codes.png"
+/>
+
+The **xx** represents different numbers ranging **from 00 to 99**.
+
+Status codes starting with "2" signify a successful operation. For example, a **200 OK status code** is commonly seen after **a client requests a webpage**, indicating that the request was successfully processed.
+
+### What Are HTTP Response Headers?
+
+Similar to HTTP requests, **HTTP responses** include headers that provide key details, such as **the language and format of the data** included in **the response body**.
+
+Here’s an **example** of HTTP response headers from **Google Chrome's** network tab:
+
+```http
+HTTP/1.1 200 OK
+Date: Tue, 01 Jun 2021 12:00:00 GMT
+Expires: -1
+Cache-Control: private, max-age=0
+Content-Type: text/html; charset=UTF-8
+Server: gws
+X-XSS-Protection: 0
+X-Frame-Options: SAMEORIGIN
+Alt-Svc: h3-29=":443"; ma=2592000,h3-T051=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+```
+
+### What Is in an HTTP Response Body?
+
+**Successful** HTTP responses to <Badge className="!text-sm" color="fuchsia">GET</Badge> requests typically have a body containing the requested information. In most web interactions, this body includes **HTML data** that a web browser will **render into a webpage**.
+
+<Divider className="my-5 !border-zinc-800" />
+
+## What’s Next?
+
+Once you have a **solid understanding of the HTTP protocol**, you can move forward and start exploring HTTP headers, which play a crucial role in web application security.
+
+<Divider className="my-5 !border-zinc-800" />
+
+## Resources
+
+Explore the source materials that were **used to create** this note.
+
+- [What is HTTP? - CloudFlare](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/)
