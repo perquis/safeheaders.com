@@ -15,6 +15,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ol: (props) => (
       <ol className="ml-5 flex list-decimal flex-col" {...props} />
     ),
+    ul: (props) => <ul className="ml-5 flex list-disc flex-col" {...props} />,
     pre: (props) => <Pre {...props} />,
     ...components,
   };

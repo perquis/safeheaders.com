@@ -116,7 +116,7 @@ figure {
 }
 
 figure pre code {
-  @apply !rounded-lg !px-0 py-2;
+  @apply !rounded-lg !px-1 py-2;
 }
 
 code {

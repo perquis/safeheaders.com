@@ -24,10 +24,12 @@ type Color =
 
 interface IBadge {
   color?: Color;
+  className?: string;
 }
 
 export const Badge: FC<PropsWithChildren & IBadge> = ({
   children,
+  className,
   color = "cyan",
 }) => {
   const colorClass = match(color)
@@ -56,6 +58,7 @@ export const Badge: FC<PropsWithChildren & IBadge> = ({
       className={clsx(
         "inline-block rounded-md px-2 py-1 text-xs font-medium",
         colorClass,
+        className,
       )}
     >
       {children}
