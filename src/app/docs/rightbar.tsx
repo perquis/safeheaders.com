@@ -1,14 +1,27 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+"use client";
+
+import { useObserver } from "@/app/docs/observer";
 import { Divider } from "@/shared/ui/divider/divider";
 import { Heading } from "@/shared/ui/heading/heading";
 import { extractMdHeadings } from "@/shared/utils";
+import clsx from "clsx";
 import Link from "next/link";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 interface IRightbar {
   links: ReturnType<typeof extractMdHeadings>;
 }
 
 export const Rightbar: FC<IRightbar> = ({ links }) => {
+  const { setFullObsList, obs } = useObserver();
+
+  useEffect(() => {
+    setFullObsList(links.map((link) => ({ name: link.href, inView: true })));
+  }, [links]);
+
+  const currentLink = obs.find((link) => link.inView);
+
   return (
     <>
       <Heading>On this page</Heading>
@@ -17,7 +30,10 @@ export const Rightbar: FC<IRightbar> = ({ links }) => {
           <li key={link.href} style={{ paddingLeft: (link.level - 1) * 8 }}>
             <Link
               href={link.href}
-              className="text-sm font-medium text-zinc-500 hover:text-cyan-400 focus-visible:text-cyan-400"
+              className={clsx(
+                "text-sm font-medium text-zinc-500 hover:text-cyan-400 focus-visible:text-cyan-400",
+                { "!text-cyan-400": currentLink?.name === link.href },
+              )}
             >
               {link.textContent}
             </Link>
