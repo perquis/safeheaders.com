@@ -1,3 +1,61 @@
 import { Link } from "@/shared/ui/link/link";
 
-This part of documentation is work in progress. If you would like to help, please check the <Link href="/docs/getting-started/Contributing">contributing guide</Link>.
+import { Badge } from "@/shared/ui/badge/badge";
+
+import { Divider } from "@/shared/ui/divider/divider";
+
+# What is SafeHeaders CLI?
+
+We’ve developed a **CLI tool** that enables you to **achieve the same results** without having to visit our website.
+
+<img
+  className="pointer-events-none w-full select-none overflow-hidden rounded-lg"
+  src="https://i.giphy.com/media/Lny6Rw04nsOOc/giphy.gif"
+/>
+
+<div className="flex flex-wrap gap-2">
+  <Badge>Windows</Badge>
+  <Badge>Ubuntu</Badge>
+  <Badge>MacOS</Badge>
+</div>
+
+<Divider className="my-5 !border-zinc-800" />
+
+## How to Install the SafeHeaders CLI Tool?
+
+We’ve developed a CLI tool that enables you to achieve the same results without having to visit our website. Here’s how you can install it:
+
+<ol>
+<div className="flex flex-col mb-5 gap-5">
+1. **Install the CLI Tool**: Use the command below to install the CLI tool globally on your machine:
+
+```sh
+sudo apt install safeheaders-cli
+```
+
+</div>
+
+<div className="flex flex-col gap-5">
+2. **Usage**: After installation, you can start using the CLI tool by running:
+
+```sh
+safeheaders-cli --help
+```
+
+</div>
+
+</ol>
+
+With the CLI tool installed, you'll be able to perform tasks **more efficiently** without needing to access the website.
+
+<Divider className="my-5 !border-zinc-800" />
+
+## Learn How to Use the CLI
+
+Below is a list of all the attributes and commands you can use with our CLI tool in the terminal. Explore these options to make the most out of the tool and enhance your workflow:
+
+```sh
+safeheaders-cli helloworld.com # Check the security headers of a website
+```
+
+For a comprehensive guide on each command and its parameters, refer to the [CLI documentation](#).
