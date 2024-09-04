@@ -1,20 +1,33 @@
 "use client";
 
-import { useOpen } from "@/shared/hooks/use-open";
 import { Badge } from "@/shared/ui/badge/badge";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function NewsletterUnsubscribePage() {
-  const [isSent, [sent]] = useOpen();
+  const [status, setStatus] = useState<string | null>(null);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    sent();
+    setStatus("loading");
+
+    const formData = new FormData(e.currentTarget);
+    const message = formData.get("message") as string;
+
+    fetch("/api/feedback/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ message }),
+    })
+      .then(() => setStatus("success"))
+      .catch(() => setStatus("error"));
   };
 
-  if (isSent) {
+  if (status === "success") {
     return (
-      <div className="flex h-screen items-center justify-center px-5 py-10 lg:px-10">
+      <div className="flex h-[calc(100vh-56px)] items-center justify-center px-5 py-10 lg:px-10">
         <div className="flex max-w-screen-sm flex-col items-start gap-5">
           <h1 className="text-2xl font-bold">Thank you for your feedback!</h1>
           <p className="text-sm text-zinc-200">
@@ -51,8 +64,15 @@ export default function NewsletterUnsubscribePage() {
             placeholder="Your feedback..."
             minLength={10}
             maxLength={512}
+            name="message"
+            id="message"
             required
           />
+          {status === "error" && (
+            <div className="w-full text-xs text-rose-500">
+              The message wasn&lsquo;t sent. Please try again later.
+            </div>
+          )}
           <button className="rounded-lg bg-white px-4 py-2 text-xs font-semibold text-zinc-950 transition-transform duration-200 hover:opacity-90 active:scale-95 active:opacity-90">
             Submit
           </button>

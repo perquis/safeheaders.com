@@ -21,7 +21,7 @@ export async function PATCH(
       .set({ subscribed: false })
       .where(eq(leads.id, Number(params.id)));
 
-    return NextResponse.json({ success: true });
+    return NextResponse.redirect("/newsletter");
   } catch (error) {
     console.error(error);
     return NextResponse.json({ success: false, error });
