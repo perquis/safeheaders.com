@@ -40,8 +40,6 @@ export const Observer = ({ children }: PropsWithChildren) => {
     [obs],
   );
 
-  console.log(obs);
-
   return (
     <ObserverContext.Provider value={{ obs, setFullObsList, updateObsList }}>
       {children}
